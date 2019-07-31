@@ -1,0 +1,46 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+//coin availability in: 25c, 10c, 5c and 1c
+
+
+//get_float to get user input and printf to output my answer
+
+
+//users input need to be formatted like money should be
+
+int main(void)
+{
+    //user re prompt ((((WORKING))))
+    float dollars;
+    do
+    {
+        dollars = get_float("Change: ");
+    }while(dollars < 0);
+    
+    int cents = round(dollars * 100);
+    
+    int coins = 0;
+    while(cents >= 25)
+    {
+        cents -= 25;
+        coins++;
+    }
+    while(cents >= 10)
+    {
+        cents -= 10;
+        coins++;
+    }
+    while(cents >= 5)
+    {
+        cents -= 5;
+        coins++;
+    }
+    while(cents >= 1)
+    {
+        cents -= 1;
+        coins++;
+    }
+   printf("%i\n", coins);
+}
